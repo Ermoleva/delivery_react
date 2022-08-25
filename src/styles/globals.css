@@ -1,0 +1,77 @@
+@import "components/Tabs.module.css";
+
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    margin: 0;
+    max-width: 100%;
+}
+body{
+    overflow-x: hidden;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+p{
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+h2{
+    margin: 0;
+}
+
+.header {
+    display: block;
+    width: 100%;
+    background-color: white;
+}
+
+.header > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+.header h1 {
+    padding: 0;
+    margin: 0;
+}
+
+.header nav ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.header nav ul li {
+    display: inline-block;
+}
+
+.footer {
+    display: flex;
+    flex: 1;
+    padding: 2rem 0;
+    border-top: 1px solid #eaeaea;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
