@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Montserrat:wght@300;400;500;700&display=swap');
 
 .header {
+  flex: 0 0 auto;
   width: 1235px;
   margin: 0 auto;
   background-color: transparent;
@@ -186,7 +187,7 @@
     &__links_items {
       &::before {
         width: 600px;
-        left: -10%;
+        left: -17%;
       }
     }
 
@@ -396,5 +397,8 @@
       width: auto;
       margin-right: 80px;
     }
+    //.hamburger{
+    //  right: 35px;
+    //}
   }
 }

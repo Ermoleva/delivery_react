@@ -1,13 +1,12 @@
 import styles from "../../styles/components/ModalOnline.module.scss"
-import "../../styles/components/ModalOnline.module.scss"
+import {useState} from "react";
 import Image from "next/future/image";
-import close from "../../images/closeModal.svg"
-import {useState} from 'react'
-import Select from 'react-select'
+import close from "../../images/closeModal.svg";
+import Select from "react-select";
 
-export default function ModalOnline({active, setActive, total}) {
+export default function ModalOnlineProgram({active, setActive}){
 
-    const {count, price} = total;
+
     const time = [
         {
             value: '13:00',
@@ -62,6 +61,64 @@ export default function ModalOnline({active, setActive, total}) {
         return payDelivery ? time.find(c => c.value === payDelivery) : ''
     }
 
+    const program = [
+        {
+            value: 'Express Fit',
+            label: 'Express Fit',
+        },
+        {
+            value: 'slim',
+            label: 'slim',
+        },
+        {
+            value: 'fitness',
+            label: 'fitness',
+        },
+        {
+            value: 'balance',
+            label: 'balance',
+        },
+        {
+            value: 'balance +',
+            label: 'balance +',
+        },
+        {
+            value: 'strong',
+            label: 'strong',
+        },
+        {
+            value: 'maxi fit',
+            label: 'maxi fit',
+        },
+    ]
+
+    const [programDelivery, setProgramDelivery] = useState(
+        'Программы питания'
+    )
+    const getValueProgram = () => {
+        return programDelivery ? program.find(c => c.value === programDelivery) : ''
+    }
+
+    const cutlery = [
+        {
+            value: 'Да, нужны',
+            label: 'Да, нужны',
+        },
+        {
+            value: 'Нет, не нужно',
+            label: 'Нет, не нужно',
+        },
+    ]
+
+    const [cutleryDelivery, setСutleryDelivery] = useState(
+        'Программы питания'
+    )
+    const getValueСutlery = () => {
+        return cutleryDelivery ? cutlery.find(c => c.value === cutleryDelivery) : ''
+    }
+
+
+
     return (
         <div className={[active ? styles.modal__active : styles.modal]} onClick={() => setActive(false)}>
             <div className={styles.modal__content} onClick={e => e.stopPropagation()}>
@@ -86,6 +143,20 @@ export default function ModalOnline({active, setActive, total}) {
                             name="tel"
                             type="text"
                         />
+                        <input
+                            className={styles.modal__input}
+                            required
+                            placeholder="Электронный адрес"
+                            name="e-mail"
+                            type="text"
+                        />
+                        <Select
+                            classNamePrefix='modal__select'
+                            // onChange={onChange}
+                            value={getValueProgram()}
+                            options={program}
+                            placeholder='Программы питания'/>
+
                         <div className={styles.modal__wrapp_adrress}>
                             <input
                                 className={styles.modal__input}
@@ -138,19 +209,49 @@ export default function ModalOnline({active, setActive, total}) {
                             value={getValueTime()}
                             options={time}
                             placeholder='Время доставки'/>
+                        <input
+                            className={styles.modal__input}
+                            required
+                            placeholder="Количество дней заказа "
+                            name="days"
+                            type="text"
+                        />
                         <Select
                             classNamePrefix='modal__select'
                             value={getValuePay()}
                             options={pay}
                             placeholder='Способ оплаты'/>
+                        <Select
+                            classNamePrefix='modal__select'
+                            value={getValueСutlery()}
+                            options={cutlery}
+                            placeholder='Мне нужны приборы'/>
+                        <input
+                            className={styles.modal__input}
+                            required
+                            placeholder="Пожелания"
+                            name="text"
+                            type="text"
+                        />
+
                     </div>
                 </div>
                 <div className={styles.modal__order}>
-                    <div className={styles.modal__btn} onClick={() => setActive(false)}>Заказать</div>
-                    <div className={styles.modal__total}>
-
-                        {count} шт / {price} грн
+                    <div className={styles.back__form_checkbox_wrapp}>
+                        <label className={styles.back__form_checkbox}>
+                            <input type="checkbox" name="radio"/>
+                            Тест-день! Получить скидку -30%?
+                            <span className={styles.checkmark}> </span>
+                        </label>
                     </div>
+                    <div className={styles.back__form_checkbox_wrapp}>
+                        <label className={styles.back__form_checkbox}>
+                            <input type="checkbox" name="radio"/>
+                            Согласен с условиями сотрудничества
+                            <span className={styles.checkmark}></span>
+                        </label>
+                    </div>
+                    <div className={styles.modal__btn} onClick={() => setActive(false)}>Заказать</div>
                 </div>
             </div>
         </div>

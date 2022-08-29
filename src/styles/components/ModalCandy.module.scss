@@ -1,5 +1,5 @@
 .modal {
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   background: rgba(2, 2, 2, 0.85);
   position: fixed;
@@ -12,37 +12,48 @@
   opacity: 0;
   pointer-events: none;
   transition: 0.5s;
-  &__content{
+  overflow-y: scroll;
+  &__content {
     width: 1180px;
     margin: 0 auto;
   }
-  &__item{
+
+  &__item {
     background: #F5FAFF;
     border-radius: 30px;
     padding: 25px 30px;
     width: auto;
   }
-  item_active{
+
+  item_active {
     background: #F5FAFF;
     border-radius: 30px;
     padding: 25px 30px;
     width: auto;
   }
-  &__item_footer{
+
+  &__item_footer {
     display: flex;
     justify-content: space-between;
   }
-  &__wrapp{
-    display: grid;
-    grid-template-columns:  repeat(3, 1fr);
-    grid-gap:30px 20px ;
+
+  &__wrapp {
+    //display: grid;
+    //grid-template-columns:  repeat(3, 1fr);
+    //grid-gap:30px 20px ;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    grid-gap: 30px 20px;
   }
-  &__close{
+
+  &__close {
     cursor: pointer;
     text-align: right;
     margin-bottom: 50px;
   }
-  &__item_title{
+
+  &__item_title {
     font-family: 'Comfortaa';
     font-style: normal;
     font-weight: 700;
@@ -51,8 +62,9 @@
     color: #020202;
     padding-bottom: 15px;
   }
-  &__active{
-    height: 100vh;
+
+  &__active {
+    height: 100%;
     width: 100vw;
     background: rgba(2, 2, 2, 0.85);
     position: fixed;
@@ -65,28 +77,33 @@
     opacity: 1;
     transition: 0.5s;
     pointer-events: all;
-
+    overflow-y: scroll;
+    z-index: 100;
   }
-  &__order_wrapp{
+
+  &__order_wrapp {
     display: flex;
     width: auto;
     margin-top: 50px;
     align-items: flex-start;
   }
-  &__order{
+
+  &__order {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-right: 30px;
   }
-  &__order_online{
+
+  &__order_online {
     background: #64D370;
     box-shadow: 0px 0px 30px #64D370;
     border-radius: 190px;
     box-sizing: border-box;
     padding: 14px 69px;
     cursor: pointer;
-    a{
+
+    a {
       font-family: 'Comfortaa';
       font-weight: 700;
       font-size: 24px;
@@ -94,9 +111,11 @@
       color: #F5FAFF;
     }
   }
-  &__order_tel{
+
+  &__order_tel {
     margin-top: 20px;
-    a{
+
+    a {
       font-family: 'Comfortaa';
       font-style: normal;
       font-weight: 700;
@@ -106,7 +125,8 @@
       border-bottom: 3px solid #E5E5E5;
     }
   }
-  &__total_price{
+
+  &__total_price {
     padding: 20px 40px;
     border: 3px solid #F5FAFF;
     filter: drop-shadow(0px 0px 20px #F5FAFF);
@@ -115,8 +135,9 @@
     display: flex;
     flex-direction: row;
   }
+
   &__amount,
-  &__sum{
+  &__sum {
     font-family: 'Montserrat';
     font-weight: 700;
     font-size: 20px;
@@ -125,3 +146,70 @@
   }
 }
 
+@media (max-width: 1250px) {
+  .modal {
+    &__content {
+      width: 95%;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .modal {
+    &__item {
+      width: 330px;
+    }
+
+    &__item_title {
+      font-size: 14px;
+    }
+
+  }
+}
+
+@media (max-width: 600px) {
+  .modal {
+    &__item {
+      width: 80%;
+      padding: 15px 20px;
+    }
+
+    &__order_wrapp {
+      flex-direction: column-reverse;
+      align-items: center;
+      margin-bottom: 70px;
+    }
+
+    &__order {
+      margin-right: 0;
+      margin-top: 20px;
+    }
+
+    &__order_online {
+      padding: 15px 50px;
+      a {
+        font-size: 20px;;
+      }
+    }
+    &__order_tel{
+      a{
+        font-size: 20px;
+      }
+    }
+
+  }
+}
+@media (max-width: 500px) {
+  .modal {
+    &__close img {
+      margin-top: 170px;
+    }
+  }
+}
+@media (max-width: 400px) {
+  .modal {
+    &__close img {
+      margin-top: 370px;
+    }
+  }
+}

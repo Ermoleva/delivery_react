@@ -1,4 +1,6 @@
 import styles from "../../styles/components/ModalNumber.module.scss"
+import Image from "next/future/image";
+import close from "../../images/closeModal.svg";
 
 export default function ModalNumber({active, setActive}){
     return(
@@ -6,7 +8,9 @@ export default function ModalNumber({active, setActive}){
 
         <div className={[active ? styles.number__active : styles.number]}  onClick={() => setActive(false)}>
 
-            <div className={styles.number__wrapp}>
+            <div className={styles.number__content}>
+
+                <div className={styles.number__wrapp} onClick={e => e.stopPropagation()}>
                 <div className={styles.number__data}>
                     <h2 className={styles.number__title}>Имя</h2>
                     <input
@@ -28,9 +32,11 @@ export default function ModalNumber({active, setActive}){
                         type="text"
                     />
                 </div>
-                <div className={styles.number__button} onClick={() => setNumberActive(false)}>Заказать</div>
+                <div className={styles.number__button} onClick={() => setActive(false)}>Заказать</div>
 
 
+                </div>
+                <Image src={close} alt="close" layout={'raw'} className={styles.number__close_img}/>
             </div>
         </div>
     )

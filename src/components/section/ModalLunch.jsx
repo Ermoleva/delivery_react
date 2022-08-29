@@ -3,7 +3,7 @@ import Image from "next/future/image";
 import close from "../../images/closeModal.svg"
 
 
-export default function ModalLunch({active, setActive, increase, decrease, lunchModal, total}){
+export default function ModalLunch({active, setActive, increase, decrease,setNumberActive, setOnlineActive, lunchModal, total}){
     const {count, price} = total
 
     return(
@@ -13,7 +13,6 @@ export default function ModalLunch({active, setActive, increase, decrease, lunch
                     <Image src={close} alt="close" layout={'raw'} className={styles.modal__close_img}/>
                 </div>
                 <div className={styles.modal__wrapp}>
-
                     {
                         lunchModal.map((elem) => {
                             return elem;
@@ -23,12 +22,18 @@ export default function ModalLunch({active, setActive, increase, decrease, lunch
                 <div className={styles.modal__order_wrapp}>
                     <div className={styles.modal__order}>
                         <div className={styles.modal__order_online}>
-                            <a href="#" onClick={() => setActive(false)}>
+                            <a href="#" onClick={() => {
+                                setActive(false)
+                                setOnlineActive(true)
+                            }}>
                                 Онлайн заказ
                             </a>
                         </div>
                         <div className={styles.modal__order_tel}>
-                            <a href="#" onClick={() => setActive(false)}>
+                            <a href="#"  onClick={() => {
+                                setActive(false),
+                                    setNumberActive(true)
+                            }}>
                                 Заказ по телефону
                             </a>
                         </div>

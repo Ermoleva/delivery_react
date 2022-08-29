@@ -8,6 +8,7 @@ import mainImage from "../src/images/article.png"
 
 export default function Article() {
     return (
+
         <section className={styles.article}>
             <div className={styles.container}>
                 <Image src={mainImage}

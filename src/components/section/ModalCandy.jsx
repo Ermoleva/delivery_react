@@ -6,7 +6,7 @@ import {useState} from "react";
 import ModalNumber from "./ModalNumber";
 
 
-const Modal = ({active, setActive, increase, decrease, candiesModal, total, numberActive, setNumberActive}) => {
+const Modal = ({active, setActive, increase, decrease, candiesModal, total, numberActive, setNumberActive, setOnlineActive, onlineActive}) => {
 
 
     const {count, price} = total
@@ -27,7 +27,10 @@ const Modal = ({active, setActive, increase, decrease, candiesModal, total, numb
                 <div className={styles.modal__order_wrapp}>
                     <div className={styles.modal__order}>
                         <div className={styles.modal__order_online}>
-                            <a href="#" onClick={() => setActive(false)}>
+                            <a href="#" onClick={() => {
+                                setActive(false)
+                                setOnlineActive(true)
+                            }}>
                                 Онлайн заказ
                             </a>
                         </div>

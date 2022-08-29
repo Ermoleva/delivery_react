@@ -15,19 +15,19 @@ import next from "../../images/arrow_next.svg"
 
 export default class slider extends Component {
     render() {
-        //const ArrowLeft = (props) => <button {...props} className={styles.arrow__left} />;
-        //const ArrowRight = (props) => <button {...props} className={styles.arrow__right} />;
+        const ArrowLeft = (props) => <button {...props} className={styles.arrow__left} />;
+        const ArrowRight = (props) => <button {...props} className={styles.arrow__right} />;
         var settings = {
-            //dots: true,
+            dots: true,
             infinite: true,
             slidesToShow: 1,
             slidesToScroll: 1,
             autoplay: true,
             speed: 2000,
             autoplaySpeed: 2000,
-            //cssEase: "linear",
-            //nextArrow: <ArrowRight />,
-            //prevArrow: <ArrowLeft />,
+            cssEase: "linear",
+            nextArrow: <ArrowRight />,
+            prevArrow: <ArrowLeft />,
 
 
         };

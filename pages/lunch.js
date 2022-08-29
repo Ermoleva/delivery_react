@@ -8,12 +8,16 @@ import data from "../src/dataLunch"
 import CandyItem from "../src/components/section/CandyItem";
 import {useState, useEffect} from "react";
 import Modal from "../src/components/section/ModalLunch";
+import ModalNumber from "../src/components/section/ModalNumber";
+import ModalOnline from "../src/components/section/ModalOnline";
 
 
 export default function Lunch() {
 
     const [cart, setCart] = useState(data);
     const [modalLunchActive, setModalLunchActive] = useState(false);
+    const [numberActive, setNumberActive] = useState(false);
+    const [onlineActive, setOnlineActive] = useState(false);
 
     const [total, setTotal] = useState({
         price: cart.reduce((prev, curr)=>{return prev + curr.priceTotal}, 0),
@@ -70,7 +74,11 @@ export default function Lunch() {
 
     return (
         <>
-            <Modal active={modalLunchActive} setActive={setModalLunchActive} total={total} lunchModal={lunchModal} increase={increase} decrease={decrease}/>
+            <Modal active={modalLunchActive} setActive={setModalLunchActive} total={total} lunchModal={lunchModal} increase={increase} decrease={decrease} numberActive={numberActive}
+                   setNumberActive={setNumberActive} onlineActive={onlineActive}
+                   setOnlineActive={setOnlineActive}/>
+            <ModalNumber active={numberActive} setActive={setNumberActive}/>
+            <ModalOnline total={total} active={onlineActive} setActive={setOnlineActive}  />
             <section className={styles.product__info}>
                 <div className={styles.container}>
                     <h2 className={styles.product__info_title}>Бизнес-ланчи</h2>
@@ -83,7 +91,7 @@ export default function Lunch() {
                         Предварительный заказ предполагает доставку на следующий день с
                         6:00-10:00. Минимальный заказ - от 6 конфет. Вес 1 кофетки 25 г.
                         <br/><br/>
-                        Заказы "на завтра" принимаются до 11-00 текущего дня.
+                        Заказы на завтра принимаются до 11-00 текущего дня.
                         <br/><br/>
                         Конфеты доставляются в прозрачных пакетах со стикером. Вы можете
                         заказать подарочный бокс с лентой стоимостью 20 грн
@@ -93,7 +101,7 @@ export default function Lunch() {
             <section className={styles.product__main}>
                 <div className={styles.container}>
                     <div className={styles.product__header}>
-                        <button className={styles.product__order} onClick={() => setModalActive(true)}>Оформить заказ</button>
+                        <button className={styles.product__order} onClick={() => setModalLunchActive(true)}>Оформить заказ</button>
                     </div>
                     <div className={styles.product__items}>
                         {lunch}

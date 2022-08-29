@@ -1,28 +1,46 @@
 .arrow__left {
   display: inline-block !important;
   position: absolute;
-  left: 0;
-  bottom: -30px;
-  background-image: url("../../images/arrow_prew.svg");
+  left: 750px;
+  bottom: -20px;
+  //background-image: url("../../images/arrow_prew.svg");
   border: none;
+  background-color: transparent;
   width: 10px;
   height: 16px;
   padding: 0;
   cursor: pointer;
+  &::after{
+    content: "";
+    position: absolute;
+    background-image: url("../../images/arrow_prew.svg");
+    width: 10px;
+    height: 16px;
+    z-index: 1;
+  }
 
 }
 
 .arrow__right {
   display: inline-block !important;
   position: absolute;
-  right: 0;
-  bottom: -30px;
-  background-image: url("../../images/arrow_next.svg");
+  right: 750px;
+  bottom: -20px;
+  //background-image: url("../../images/arrow_next.svg");
   border: none;
+  background-color: transparent;
   width: 10px;
   height: 16px;
   padding: 0;
   cursor: pointer;
+  &::after{
+    content: "";
+    position: absolute;
+    background-image: url("../../images/arrow_next.svg");
+    width: 10px;
+    height: 16px;
+
+  }
 
 }
 
@@ -147,6 +165,12 @@
       right: -350px;
       top: -478px;
     }
+    .arrow__right{
+      right: 600px;
+    }
+    .arrow__left{
+      left: 600px;
+    }
 
     &__img,
     &__pic {
@@ -160,6 +184,18 @@
     }
   }
 }
+@media (max-width: 1400px){
+  .slider {
+
+    .arrow__right {
+      right: 550px;
+    }
+
+    .arrow__left {
+      left: 550px;
+    }
+  }
+}
 
 @media (max-width: 1300px) {
   .slider {
@@ -170,6 +206,13 @@
       height: 700px;
       top: -270px;
       right: -150px;
+    }
+    .arrow__right {
+        right: 420px;
+      }
+
+      .arrow__left {
+        left: 420px;
     }
 
     &__img,
@@ -222,7 +265,17 @@
     }
   }
 }
+@media (max-width: 1100px){
+.slider{
+  .arrow__right {
+    right: 320px;
+  }
 
+  .arrow__left {
+    left: 320px;
+  }
+}
+}
 @media (max-width: 1000px) {
   .slider {
     &::after {
@@ -233,7 +286,17 @@
     }
   }
 }
+@media (max-width: 850px){
+  .slider{
+    .arrow__right {
+      right: 200px;
+    }
 
+    .arrow__left {
+      left: 200px;
+    }
+  }
+}
 @media (max-width: 800px) {
   .slider {
     &::after {
@@ -290,6 +353,13 @@
       width: 250px;
       height: 250px;
     }
+    .arrow__right {
+      right: 100px;
+    }
+
+    .arrow__left {
+      left: 100px;
+    }
   }
 }
 @media (max-width: 500px) {
@@ -337,6 +407,17 @@
 
     &__link_text {
       padding-top: 7px;
+    }
+  }
+}
+@media (max-width: 400px){
+  .slider{
+    .arrow__right {
+      right: 30px;
+    }
+
+    .arrow__left {
+      left: 30px;
     }
   }
 }

@@ -10,7 +10,7 @@ const lunch = [
         info3: '3. Салат овощной с базиликово-медовой заправкой',
         count: 0,
         price: 189,
-        priceTotal: 189,
+        priceTotal: 0,
     },
     {
         id: 2,
@@ -23,7 +23,7 @@ const lunch = [
         info3: '3. Салат овощной с базиликово-медовой заправкой',
         count: 0,
         price: 189,
-        priceTotal: 189,
+        priceTotal: 0,
     },
     {
         id: 3,
@@ -36,7 +36,7 @@ const lunch = [
         info3: '3. Салат овощной с базиликово-медовой заправкой',
         count: 0,
         price: 189,
-        priceTotal: 189,
+        priceTotal: 0,
     },
     {
         id: 4,
@@ -49,7 +49,7 @@ const lunch = [
         info3: '3. Салат овощной с базиликово-медовой заправкой',
         count: 0,
         price: 189,
-        priceTotal: 189,
+        priceTotal: 0,
     },
     {
         id: 5,
@@ -62,7 +62,7 @@ const lunch = [
         info3: '3. Салат овощной с базиликово-медовой заправкой',
         count: 0,
         price: 189,
-        priceTotal: 189,
+        priceTotal: 0,
     },
     {
         id: 6,
@@ -75,7 +75,7 @@ const lunch = [
         info3: '3. Салат овощной с базиликово-медовой заправкой',
         count: 0,
         price: 189,
-        priceTotal: 189,
+        priceTotal: 0,
     },
 
 ];

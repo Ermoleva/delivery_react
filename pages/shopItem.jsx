@@ -9,6 +9,7 @@ import CandyItemModal from "../src/components/section/CandyItemModal"
 import data from "../src/dataCandy"
 import Modal from "../src/components/section/ModalCandy";
 import ModalNumber from "../src/components/section/ModalNumber";
+import ModalOnline from "../src/components/section/ModalOnline";
 
 
 export default function ShopItem() {
@@ -17,14 +18,22 @@ export default function ShopItem() {
     const [numberActive, setNumberActive] = useState(false);
     const [onlineActive, setOnlineActive] = useState(false);
     const [total, setTotal] = useState({
-        price: cart.reduce((prev, curr)=>{return prev + curr.priceTotal}, 0),
-        count: cart.reduce((prev, curr)=>{return prev + curr.count}, 0)
+        price: cart.reduce((prev, curr) => {
+            return prev + curr.priceTotal
+        }, 0),
+        count: cart.reduce((prev, curr) => {
+            return prev + curr.count
+        }, 0)
     })
 
-    useEffect(()=>{
+    useEffect(() => {
         setTotal({
-            price: cart.reduce((prev, curr)=>{return prev + curr.priceTotal}, 0),
-            count: cart.reduce((prev, curr)=>{return prev + curr.count}, 0)
+            price: cart.reduce((prev, curr) => {
+                return prev + curr.priceTotal
+            }, 0),
+            count: cart.reduce((prev, curr) => {
+                return prev + curr.count
+            }, 0)
         })
     }, [cart])
 
@@ -35,16 +44,14 @@ export default function ShopItem() {
                 if (candyItem.id === id) {
                     return {
                         ...candyItem,
-                        count: candyItem.count +1,
-                        priceTotal: (candyItem.count+1) * candyItem.price
+                        count: candyItem.count + 1,
+                        priceTotal: (candyItem.count + 1) * candyItem.price
                     }
                 }
                 return candyItem;
             })
         })
     }
-
-
 
 
     const decrease = (id) => {
@@ -65,20 +72,24 @@ export default function ShopItem() {
 
     const candies = cart.map((candyItem) => {
         // eslint-disable-next-line react/jsx-key
-        return <CandyItem  key={candyItem.id} candyItem={candyItem} increase={increase} decrease={decrease}/>
+        return <CandyItem key={candyItem.id} candyItem={candyItem} increase={increase} decrease={decrease}/>
     })
 
     const candiesModal = cart.map((candyItem) => {
         // eslint-disable-next-line react/jsx-key
-        return <CandyItemModal  key={candyItem.id} candyItem={candyItem} total={total} increase={increase} decrease={decrease}/>
+        return <CandyItemModal key={candyItem.id} candyItem={candyItem} total={total} increase={increase}
+                               decrease={decrease}/>
     })
 
 
     return (
         <>
-            <Modal active={modalCandyActive} setActive={setModalCandyActive} numberActive={numberActive} setNumberActive={setNumberActive} total={total} candiesModal={candiesModal} increase={increase} decrease={decrease}/>
+            <Modal active={modalCandyActive} setActive={setModalCandyActive} numberActive={numberActive}
+                   setNumberActive={setNumberActive} onlineActive={onlineActive}
+                   setOnlineActive={setOnlineActive} total={total} candiesModal={candiesModal} increase={increase}
+                   decrease={decrease}/>
             <ModalNumber active={numberActive} setActive={setNumberActive}/>
-
+            <ModalOnline total={total} active={onlineActive} setActive={setOnlineActive}  />
             <section className={styles.product__info}>
                 <div className={styles.container}>
                     <h2 className={styles.product__info_title}>Полезные конфеты</h2>
@@ -111,7 +122,9 @@ export default function ShopItem() {
                                    alt="logo" layout={'raw'} className={styles.product__back_arrow}/>
                             <p>Назад</p>
                         </a>
-                        <button className={styles.product__order} onClick={() => setModalCandyActive(true)}>Оформить заказ</button>
+                        <button className={styles.product__order} onClick={() => setModalCandyActive(true)}>Оформить
+                            заказ
+                        </button>
                     </div>
                     <div className={styles.product__items}>
 
