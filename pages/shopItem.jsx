@@ -58,7 +58,7 @@ export default function ShopItem() {
         setCart(() => {
             return cart.map((candyItem) => {
                 if (candyItem.id === id) {
-                    const newCount = candyItem.count - 1 > 0 ? candyItem.count - 1 : 1
+                    const newCount = candyItem.count - 1 >= 0 ? candyItem.count - 1 : 0
                     return {
                         ...candyItem,
                         count: newCount,

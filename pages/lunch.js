@@ -50,7 +50,7 @@ export default function Lunch() {
         setCart(() => {
             return cart.map((lunchItem) => {
                 if (lunchItem.id === id) {
-                    const newCount = lunchItem.count - 1 > 0 ? lunchItem.count - 1 : 1
+                    const newCount = lunchItem.count - 1 >= 0 ? lunchItem.count - 1 : 0
                     return {
                         ...lunchItem,
                         count: newCount,
